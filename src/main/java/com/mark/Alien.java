@@ -2,6 +2,8 @@ package com.mark;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "alien_table")
 public class Alien
@@ -18,15 +20,18 @@ public class Alien
 //    @Transient
     private String tech;
 
-    @OneToOne
-    private Laptop laptop;
+    @OneToMany
+    private List<Laptop> laptops;
 
-    public Laptop getLaptop() {
-        return laptop;
+
+
+
+    public List<Laptop> getLaptops() {
+        return laptops;
     }
 
-    public void setLaptop(Laptop laptop) {
-        this.laptop = laptop;
+    public void setLaptops(List<Laptop> laptops) {
+        this.laptops = laptops;
     }
 
 
@@ -62,7 +67,7 @@ public class Alien
                 "aid=" + aid +
                 ", aname='" + aname + '\'' +
                 ", tech='" + tech + '\'' +
-                ", laptop=" + laptop +
+                ", laptop=" + laptops +
                 '}';
     }
 }

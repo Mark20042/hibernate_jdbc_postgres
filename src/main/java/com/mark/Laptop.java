@@ -1,10 +1,11 @@
 package com.mark;
 
-import jakarta.persistence.Embeddable;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
+@Cacheable
 public class Laptop {
 
     @Id
@@ -12,6 +13,9 @@ public class Laptop {
     private String brand;
     private String model;
     private int ram;
+
+
+
 
     public int getLid() {
         return lid;
@@ -44,6 +48,7 @@ public class Laptop {
     public void setRam(int ram) {
         this.ram = ram;
     }
+
 
     @Override
     public String toString() {
